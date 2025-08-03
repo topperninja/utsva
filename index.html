@@ -1300,184 +1300,219 @@
       </footer>
     </div>
     <!-- YouTube & Analytics Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Loading Overlay Animation
+    const overlay = document.getElementById("loadingOverlay");
+    if (overlay) {
+      setTimeout(() => {
+        overlay.style.opacity = "0";
+        setTimeout(() => (overlay.style.display = "none"), 500);
+      }, 1500);
+    }
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // ✅ Loading Overlay Animation
-        const overlay = document.getElementById("loadingOverlay");
-        if (overlay) {
-          setTimeout(() => {
-            overlay.style.opacity = "0";
-            setTimeout(() => (overlay.style.display = "none"), 500);
-          }, 1500);
-        }
+    // ✅ Fetch YouTube Videos
+    const apiKey = "AIzaSyBB5GHS08REnWT0IKsFIiITlXTZZPJwvLE";
+    const channelId = "UCRptoBEWak_neYheT7sXS4w";
+    const maxResults = 10000;
+    let allVideoData = [];
 
-        // ✅ Fetch YouTube Videos
-        const apiKey = "AIzaSyBB5GHS08REnWT0IKsFIiITlXTZZPJwvLE";
-        const channelId = "UCRptoBEWak_neYheT7sXS4w";
-        const maxResults = 10000;
-        let allVideoData = [];
-
-        function fetchYouTubeVideos() {
-          const endpoint = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}`;
-          fetch(endpoint)
-            .then((res) => res.json())
-            .then((data) => {
-              const container = document.getElementById("youtube-videos");
-              container.innerHTML = "";
-              if (data.items && data.items.length) {
-                allVideoData = data.items.filter(
-                  (item) => item.id.kind === "youtube#video"
-                );
-                renderVideos(allVideoData);
-              } else {
-                container.innerHTML = "<p>No videos found.</p>";
-              }
-            })
-            .catch((err) => {
-              console.error("YouTube Fetch Error:", err);
-              document.getElementById("youtube-videos").innerHTML =
-                "<p>Unable to load videos.</p>";
-            });
-        }
-
-        function renderVideos(videoList) {
+    function fetchYouTubeVideos() {
+      const endpoint = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=${maxResults}`;
+      fetch(endpoint)
+        .then((res) => res.json())
+        .then((data) => {
           const container = document.getElementById("youtube-videos");
           container.innerHTML = "";
-          videoList.forEach((item) => {
-            const videoId = item.id.videoId;
-            const title = item.snippet.title;
-            const description = item.snippet.description;
-            const thumbnail = item.snippet.thumbnails.high.url;
+          if (data.items && data.items.length) {
+            allVideoData = data.items.filter(
+              (item) => item.id.kind === "youtube#video"
+            );
+            renderVideos(allVideoData);
+          } else {
+            container.innerHTML = "<p>No videos found.</p>";
+          }
+        })
+        .catch((err) => {
+          console.error("YouTube Fetch Error:", err);
+          document.getElementById("youtube-videos").innerHTML =
+            "<p>Unable to load videos.</p>";
+        });
+    }
 
-            const card = document.createElement("div");
-            card.className = "youtube-card search-item";
-            card.innerHTML = `
+    // ✅ Render Videos and Inject Structured Data
+    function renderVideos(videoList) {
+      const container = document.getElementById("youtube-videos");
+      container.innerHTML = "";
+
+      videoList.forEach((item) => {
+        const videoId = item.id.videoId;
+        const title = item.snippet.title;
+        const description = item.snippet.description;
+        const thumbnail = item.snippet.thumbnails.high.url;
+        const publishDate = item.snippet.publishedAt;
+        const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        const contentUrl = `https://topperninja.com/watch/${encodeURIComponent(
+          title.replace(/\s+/g, "-").toLowerCase()
+        )}`;
+
+        // ✅ Video Card
+        const card = document.createElement("div");
+        card.className = "youtube-card search-item";
+        card.innerHTML = `
           <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
             <img src="${thumbnail}" alt="${title}" />
             <h3>${title}</h3>
             <p>${description}</p>
           </a>
         `;
-            container.appendChild(card);
-          });
-        }
+        container.appendChild(card);
 
-        // ✅ Monaco Editor Setup
-        require.config({
-          paths: {
-            vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs",
-          },
+        // ✅ Insert Structured Data
+        const scriptTag = document.createElement("script");
+        scriptTag.type = "application/ld+json";
+        scriptTag.innerHTML = JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "name": title,
+          "description": description,
+          "thumbnailUrl": thumbnail,
+          "uploadDate": publishDate,
+          "embedUrl": embedUrl,
+          "contentUrl": contentUrl,
         });
+        document.head.appendChild(scriptTag);
 
-        require(["vs/editor/editor.main"], function () {
-          const defaultJS = `
+        // ✅ Dynamic <title> and <meta> (if URL has ?video=videoId)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("video") === videoId) {
+          document.title = title;
+          let metaDesc = document.querySelector("meta[name='description']");
+          if (!metaDesc) {
+            metaDesc = document.createElement("meta");
+            metaDesc.name = "description";
+            document.head.appendChild(metaDesc);
+          }
+          metaDesc.content = description;
+        }
+      });
+    }
+
+    // ✅ Monaco Editor Setup
+    require.config({
+      paths: {
+        vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs",
+      },
+    });
+
+    require(["vs/editor/editor.main"], function () {
+      const defaultJS = `
 // Write your JavaScript code here
 function greet() {
   console.log("Hello from Ninja Code!");
 }
 greet();`.trim();
 
-          const editor = monaco.editor.create(
-            document.getElementById("editor"),
-            {
-              value: defaultJS,
-              language: "javascript",
-              theme: "vs-dark",
-              automaticLayout: true,
-              minimap: { enabled: false },
-            }
-          );
+      const editor = monaco.editor.create(
+        document.getElementById("editor"),
+        {
+          value: defaultJS,
+          language: "javascript",
+          theme: "vs-dark",
+          automaticLayout: true,
+          minimap: { enabled: false },
+        }
+      );
 
-          document
-            .getElementById("run-btn")
-            .addEventListener("click", function () {
-              const code = editor.getValue();
-              const outputDiv = document.getElementById("js-output");
-              outputDiv.innerHTML = "";
+      document
+        .getElementById("run-btn")
+        .addEventListener("click", function () {
+          const code = editor.getValue();
+          const outputDiv = document.getElementById("js-output");
+          outputDiv.innerHTML = "";
 
-              const iframe = document.createElement("iframe");
-              iframe.style.display = "none";
-              document.body.appendChild(iframe);
+          const iframe = document.createElement("iframe");
+          iframe.style.display = "none";
+          document.body.appendChild(iframe);
 
-              const sandboxWindow = iframe.contentWindow;
-              const consoleLogs = [];
+          const sandboxWindow = iframe.contentWindow;
+          const consoleLogs = [];
 
-              sandboxWindow.console.log = function (...args) {
-                consoleLogs.push(args.join(" "));
-              };
+          sandboxWindow.console.log = function (...args) {
+            consoleLogs.push(args.join(" "));
+          };
 
-              try {
-                const script = sandboxWindow.document.createElement("script");
-                script.type = "text/javascript";
-                script.textContent = code;
-                sandboxWindow.document.body.appendChild(script);
+          try {
+            const script = sandboxWindow.document.createElement("script");
+            script.type = "text/javascript";
+            script.textContent = code;
+            sandboxWindow.document.body.appendChild(script);
 
-                setTimeout(() => {
-                  outputDiv.innerHTML = `<pre>${
-                    consoleLogs.join("\n") || "✅ Code ran successfully"
-                  }</pre>`;
-                  iframe.remove();
-                }, 200);
-              } catch (e) {
-                outputDiv.innerHTML = `<pre style="color: red;">❌ Error: ${e.message}</pre>`;
-                iframe.remove();
-              }
-            });
-
-          document.getElementById("run-btn").click();
+            setTimeout(() => {
+              outputDiv.innerHTML = `<pre>${
+                consoleLogs.join("\n") || "✅ Code ran successfully"
+              }</pre>`;
+              iframe.remove();
+            }, 200);
+          } catch (e) {
+            outputDiv.innerHTML = `<pre style="color: red;">❌ Error: ${e.message}</pre>`;
+            iframe.remove();
+          }
         });
 
-        // ✅ Search Function
-        function performSearch(queryText = "") {
-          const input = document.querySelector(".search-input");
-          const query = (queryText || input.value).toLowerCase().trim();
-          if (!query) return;
+      document.getElementById("run-btn").click();
+    });
 
-          if (query === "topperninja") {
-            renderVideos(allVideoData);
-          } else {
-            const filtered = allVideoData.filter((item) => {
-              const text = (
-                item.snippet.title +
-                " " +
-                item.snippet.description
-              ).toLowerCase();
-              return text.includes(query);
-            });
-            renderVideos(filtered);
-          }
-        }
+    // ✅ Search Function
+    function performSearch(queryText = "") {
+      const input = document.querySelector(".search-input");
+      const query = (queryText || input.value).toLowerCase().trim();
+      if (!query) return;
 
-        // ✅ Trigger search on Enter
-        const inputField = document.querySelector(".search-input");
-        if (inputField) {
-          inputField.addEventListener("keypress", function (e) {
-            if (e.key === "Enter") performSearch();
-          });
-        }
+      if (query === "topperninja") {
+        renderVideos(allVideoData);
+      } else {
+        const filtered = allVideoData.filter((item) => {
+          const text =
+            item.snippet.title + " " + item.snippet.description;
+          return text.toLowerCase().includes(query);
+        });
+        renderVideos(filtered);
+      }
+    }
 
-        // ✅ Trigger search on icon click
-        const icon = document.querySelector(".search-icon");
-        if (icon) {
-          icon.addEventListener("click", () => performSearch());
-        }
-
-        // ✅ Auto-search from URL (SEO support)
-        const urlParams = new URLSearchParams(window.location.search);
-        const autoQuery = urlParams.get("q") || urlParams.get("search") || "";
-        if (autoQuery) {
-          const searchInput = document.querySelector(".search-input");
-          if (searchInput) searchInput.value = decodeURIComponent(autoQuery);
-          setTimeout(() => performSearch(autoQuery), 1000); // slight delay to wait for video fetch
-        }
-
-        // ✅ Initial video load
-        fetchYouTubeVideos();
-
-        // Global
-        window.performSearch = performSearch;
+    // ✅ Trigger search on Enter
+    const inputField = document.querySelector(".search-input");
+    if (inputField) {
+      inputField.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") performSearch();
       });
+    }
+
+    // ✅ Trigger search on icon click
+    const icon = document.querySelector(".search-icon");
+    if (icon) {
+      icon.addEventListener("click", () => performSearch());
+    }
+
+    // ✅ Auto-search from URL (SEO support)
+    const urlParams = new URLSearchParams(window.location.search);
+    const autoQuery =
+      urlParams.get("q") || urlParams.get("search") || "";
+    if (autoQuery) {
+      const searchInput = document.querySelector(".search-input");
+      if (searchInput) searchInput.value = decodeURIComponent(autoQuery);
+      setTimeout(() => performSearch(autoQuery), 1000);
+    }
+
+    // ✅ Initial video load
+    fetchYouTubeVideos();
+
+    // Global
+    window.performSearch = performSearch;
+  });
+
+
     </script>
   </body>
 </html>
