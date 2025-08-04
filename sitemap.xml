@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://www.topperninja.com/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
+    <loc>https://yourdomain.com/videos/YTAUeDm6XEc.html</loc>
+    <lastmod>2025-08-03T10:09:36Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://yourdomain.com/videos/0Nx-Gw-vNq8.html</loc>
+    <lastmod>2025-08-03T10:04:51Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://yourdomain.com/videos/_ebT8qxN7x0.html</loc>
+    <lastmod>2025-08-03T10:01:11Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://yourdomain.com/videos/vX8Ib9CVEhY.html</loc>
+    <lastmod>2025-08-03T09:51:53Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://yourdomain.com/videos/rJaomIJjlks.html</loc>
+    <lastmod>2025-08-03T09:48:13Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://yourdomain.com/videos/S70U1qfXMCE.html</loc>
+    <lastmod>2025-08-03T09:42:05Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://yourdomain.com/videos/4iYNRI5lQmY.html</loc>
+    <lastmod>2025-08-03T09:26:56Z</lastmod>
   </url>
 </urlset>
