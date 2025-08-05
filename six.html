@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Install VS Code on Windows 10/11 | Step-by-Step Guide (2025) | Topper Ninja</title>
+    <meta name="description" content="Learn to install Visual Studio Code (VS Code) on Windows 10/11 with this beginner-friendly 2025 tutorial. Setup VS Code for JavaScript, Python, C++ and more.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="install VS Code, VS Code tutorial, Visual Studio Code setup, coding setup, beginner coding, Topper Ninja">
+    <meta name="robots" content="index, follow">
+    <meta name="google-adsense-account" content="ca-pub-1976234535616337">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.topperninja.com/4iYNRI5lQmY">
+    <meta property="og:title" content="How to Install VS Code on Windows 10/11 | Step-by-Step Guide (2025) | Topper Ninja">
+    <meta property="og:description" content="Learn to install Visual Studio Code (VS Code) on Windows 10/11 with this beginner-friendly 2025 tutorial.">
+    <meta property="og:image" content="https://i.ytimg.com/vi/4iYNRI5lQmY/maxresdefault.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.topperninja.com/4iYNRI5lQmY">
+    <meta property="twitter:title" content="How to Install VS Code on Windows 10/11 | Step-by-Step Guide (2025) | Topper Ninja">
+    <meta property="twitter:description" content="Learn to install Visual Studio Code (VS Code) on Windows 10/11 with this beginner-friendly 2025 tutorial.">
+    <meta property="twitter:image" content="https://i.ytimg.com/vi/4iYNRI5lQmY/maxresdefault.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="ChatGPT Image Jul 27, 2025, 09_11_36 AM.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "How to Install VS Code on Windows 10/11 | Step-by-Step Guide for Beginners (2025)",
+      "description": "Learn how to download and install Visual Studio Code (VS Code) on Windows 10/11 in this beginner-friendly tutorial.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/4iYNRI5lQmY/maxresdefault.jpg",
+      "uploadDate": "2025-08-03T09:26:56Z",
+      "duration": "PT8M15S",
+      "contentUrl": "https://www.topperninja.com/4iYNRI5lQmY",
+      "embedUrl": "https://www.youtube.com/embed/4iYNRI5lQmY",
+      "interactionCount": {
+        "@type": "InteractionCounter",
+        "interactionType": { "@type": "WatchAction" },
+        "userInteractionCount": 125000
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Topper Ninja",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.topperninja.com/logo.png"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XKXCLKYC1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2XKXCLKYC1');
+    </script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1976234535616337" crossorigin="anonymous"></script>
+    
+    <style>
+        /* ===== BASE STYLES ===== */
+        :root {
+            --primary: #6c63ff;
+            --primary-light: #8b85ff;
+            --primary-dark: #4a42d1;
+            --secondary: #42d1c1;
+            --accent: #ff6b6b;
+            --accent-light: #ff8e8e;
+            --accent-dark: #e05555;
+            --text-dark: #2d3748;
+            --text-light: #f7fafc;
+            --bg-light: #f7fafc;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-ninja {
+            width: 100px;
+            height: 120px;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .loading-ninja-head {
+            width: 100%;
+            height: 80px;
+            background-color: var(--text-dark);
+            border-radius: 50% 50% 0 0;
+            position: relative;
+        }
+
+        .loading-ninja-mask {
+            position: absolute;
+            width: 70px;
+            height: 30px;
+            background-color: var(--primary);
+            top: 25px;
+            left: 15px;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .loading-ninja-arm {
+            position: absolute;
+            width: 6px;
+            height: 40px;
+            background-color: var(--text-dark);
+            top: 40px;
+            animation: loading-arm-swing 1.5s infinite ease-in-out;
+        }
+
+        .loading-ninja-arm.left {
+            left: -10px;
+            transform-origin: top center;
+        }
+
+        .loading-ninja-arm.right {
+            right: -10px;
+            transform-origin: top center;
+            animation-delay: 0.75s;
+        }
+
+        .loading-shuriken {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 20px;
+            right: -40px;
+            animation: loading-shuriken-spin 2s infinite linear;
+        }
+
+        .loading-shuriken::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: 8px solid var(--accent);
+            clip-path: polygon(
+                50% 0%,
+                60% 40%,
+                100% 50%,
+                60% 60%,
+                50% 100%,
+                40% 60%,
+                0% 50%,
+                40% 40%
+            );
+        }
+
+        .loading-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 1rem;
+            animation: loading-text-pulse 2s infinite ease-in-out;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.03);
+        }
+
+        .navbar-brand h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Ninja Logo */
+        .ninja-logo {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .ninja-head {
+            width: 100%;
+            height: 100%;
+            background-color: var(--text-dark);
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ninja-mask {
+            position: absolute;
+            width: 70%;
+            height: 40%;
+            background-color: var(--primary);
+            top: 20%;
+            left: 15%;
+            border-radius: 50% 50% 0 0;
+        }
+
+        /* ===== VIDEO SECTION ===== */
+        .video-section {
+            padding: 4rem 0;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-meta {
+            margin-bottom: 2rem;
+        }
+
+        .publish-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .video-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .video-description {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ===== STEP LIST ===== */
+        .step-list {
+            margin: 1.5rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            background-color: var(--primary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        /* ===== EXTENSION LIST ===== */
+        .extension-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .extension-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .extension-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .extension-name {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-light);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes loading-arm-swing {
+            0%, 100% { transform: rotate(30deg); }
+            50% { transform: rotate(-30deg); }
+        }
+
+        @keyframes loading-shuriken-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes loading-text-pulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .video-title {
+                font-size: 1.5rem;
+            }
+            
+            .video-description {
+                padding: 1rem;
+            }
+            
+            .extension-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-section {
+                padding: 2rem 0;
+            }
+            
+            .video-title {
+                font-size: 1.3rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-ninja">
+            <div class="loading-ninja-head">
+                <div class="loading-ninja-mask"></div>
+            </div>
+            <div class="loading-ninja-arm left"></div>
+            <div class="loading-ninja-arm right"></div>
+            <div class="loading-shuriken"></div>
+        </div>
+        <div class="loading-text">Preparing Your Ninja Training...</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="https://www.topperninja.com" class="navbar-brand">
+                <div class="ninja-logo">
+                    <div class="ninja-head">
+                        <div class="ninja-mask"></div>
+                    </div>
+                </div>
+                <h1>Topper Ninja</h1>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/4iYNRI5lQmY?autoplay=0&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="video-meta">
+                <span class="publish-date">Published on: August 3, 2025</span>
+                <h1 class="video-title">How to Install VS Code on Windows 10/11 | Step-by-Step Guide (2025)</h1>
+            </div>
+            
+            <div class="video-description">
+                <p>Learn how to download and install Visual Studio Code (VS Code) on your computer (Windows 10/11) in 2025. This step-by-step beginner-friendly tutorial will help you set up VS Code for coding in JavaScript, Python, C++, and more.</p>
+                
+                <h3>In this video, you'll learn:</h3>
+                
+                <div class="step-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div>Where to download VS Code safely from the official website</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div>How to install VS Code properly on Windows with recommended settings</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div>How to launch and use VS Code for the first time</div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div>Recommended extensions to enhance your coding experience</div>
+                    </div>
+                </div>
+                
+                <h3>Recommended VS Code Extensions:</h3>
+                <div class="extension-list">
+                    <div class="extension-card">
+                        <div class="extension-name">Prettier</div>
+                        <p>Code formatter that helps maintain consistent styling</p>
+                    </div>
+                    <div class="extension-card">
+                        <div class="extension-name">ESLint</div>
+                        <p>JavaScript linter that helps find and fix problems</p>
+                    </div>
+                    <div class="extension-card">
+                        <div class="extension-name">Python</div>
+                        <p>Official Python extension with IntelliSense and debugging</p>
+                    </div>
+                    <div class="extension-card">
+                        <div class="extension-name">Live Server</div>
+                        <p>Launch a local development server with live reload</p>
+                    </div>
+                </div>
+                
+                <p>For more coding setup tutorials and beginner guides, <a href="https://www.topperninja.com/coding-setup" style="color: var(--primary);">check out our Coding Setup playlist</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.topperninja.com">Home</a>
+                <a href="https://www.topperninja.com/coding-setup">Coding Setup</a>
+                <a href="https://www.topperninja.com/blog">Blog</a>
+                <a href="https://www.topperninja.com/about">About</a>
+                <a href="https://www.topperninja.com/contact">Contact</a>
+                <a href="https://www.topperninja.com/privacy">Privacy Policy</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/topperninja" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com/topperninja" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/topperninja" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@topperninja-w5g" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Topper Ninja. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Loading Animation
+        document.addEventListener("DOMContentLoaded", function() {
+            const overlay = document.getElementById("loadingOverlay");
+            if (overlay) {
+                setTimeout(() => {
+                    overlay.style.opacity = "0";
+                    setTimeout(() => overlay.style.display = "none", 500);
+                }, 1500);
+            }
+            
+            // Structured Data for Breadcrumbs
+            const breadcrumbScript = document.createElement('script');
+            breadcrumbScript.type = 'application/ld+json';
+            breadcrumbScript.innerHTML = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.topperninja.com"
+                },{
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Coding Setup",
+                    "item": "https://www.topperninja.com/coding-setup"
+                },{
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "VS Code Installation Guide",
+                    "item": "https://www.topperninja.com/4iYNRI5lQmY"
+                }]
+            });
+            document.head.appendChild(breadcrumbScript);
+        });
+    </script>
+</body>
+</html>
