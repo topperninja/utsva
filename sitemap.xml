@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.topperninja.com/videos/YTAUeDm6XEc.html</loc>
-    <lastmod>2025-08-03T10:09:36Z</lastmod>
+    <loc>https://www.topperninja.com/animation.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.topperninja.com/videos/0Nx-Gw-vNq8.html</loc>
-    <lastmod>2025-08-03T10:04:51Z</lastmod>
+    <loc>https://www.topperninja.com/one.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.topperninja.com/videos/_ebT8qxN7x0.html</loc>
-    <lastmod>2025-08-03T10:01:11Z</lastmod>
+    <loc>https://www.topperninja.com/two.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.topperninja.com/videos/vX8Ib9CVEhY.html</loc>
-    <lastmod>2025-08-03T09:51:53Z</lastmod>
+    <loc>https://www.topperninja.com/three.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.topperninja.com/videos/rJaomIJjlks.html</loc>
-    <lastmod>2025-08-03T09:48:13Z</lastmod>
+    <loc>https://www.topperninja.com/five.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
 
   <url>
-    <loc>https://www.topperninja.com/videos/S70U1qfXMCE.html</loc>
-    <lastmod>2025-08-03T09:42:05Z</lastmod>
+    <loc>https://www.topperninja.com/six.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
 
-  <url>
-    <loc>https://www.topperninja.com/videos/4iYNRI5lQmY.html</loc>
-    <lastmod>2025-08-03T09:26:56Z</lastmod>
-  </url>
 </urlset>
