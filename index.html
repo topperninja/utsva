@@ -1242,16 +1242,6 @@
             </div>
           </div>
         </section>
-        <div class="search-container">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Search for courses..."
-          />
-          <div class="search-icon" onclick="performSearch()">
-            <i class="fas fa-search"></i>
-          </div>
-        </div>
         <!-- YouTube Videos Section -->
         <section class="youtube-section">
           <h2 class="section-title">Latest Videos</h2>
@@ -1449,20 +1439,6 @@ greet();`.trim();
       document.getElementById("run-btn").click();
     });
 
-  function performSearch() {
-    const query = document.querySelector('.search-input').value.trim();
-    if (query) {
-      alert("You searched for: " + query);
-      // TODO: Add your search logic here
-    } else {
-      alert("Please enter a search term.");
-    }
-  }
-
-
-
-    // Global
-    window.performSearch = performSearch;
   });
 
 
