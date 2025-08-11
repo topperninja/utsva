@@ -1,6 +1,4 @@
-# Allow all standard crawlers
 User-agent: *
 Allow: /
 
-# Provide sitemap
 Sitemap: https://www.topperninja.com/sitemap.xml
